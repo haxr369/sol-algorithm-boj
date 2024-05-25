@@ -1,0 +1,9 @@
+-- 코드를 작성해주세요
+# GENOTYPE을 2진수로 저장함
+# 자식의 부모를 찾고, 자식과 부모의 형질을 비교
+
+SELECT e.ID, e.GENOTYPE, ed.GENOTYPE AS PARENT_GENOTYPE FROM ECOLI_DATA e
+JOIN ECOLI_DATA ed
+    ON e.PARENT_ID = ed.ID
+WHERE (e.GENOTYPE & ed.GENOTYPE) >= ed.GENOTYPE
+ORDER BY e.ID ASC;
