@@ -15,7 +15,7 @@ class Solution {
     
     private int Sx = 0;
     private int Ex = 0;
-    private int[][] oilLand = new int[504][504];
+    private int[][] oilLand = new int[501][501];
     public int solution(int[][] land) {
         
         // 각 석유의 크기, 시작 Sx와 좌표 끝 Ex 좌표를 구
