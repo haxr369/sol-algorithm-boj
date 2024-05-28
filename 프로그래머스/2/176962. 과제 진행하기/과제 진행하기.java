@@ -118,32 +118,7 @@ class Solution {
                 prevName = assignments[i].getName();
             }
         }
-        
-//         if(!st.isEmpty()){
-//             while(!st.isEmpty()){
-//                 Assignment a = st.peek();
-//                 // lastStartTime + a.playTime <= assignments[len].getStartTime()
-//                     // 스택 값을 답으로
-//                 //                             >
-//                     // assignments[len] 값을 답으로
-//                     // break;
-//                 System.out.println("시작 시간 : "+assignments[plans.length-1].getStartTime()+" 스택 목표 시간 : "+(lastStartTime+a.getPlayTime()));
-//                 if(lastStartTime+a.getPlayTime() < assignments[plans.length-1].getStartTime()){
-//                     st.pop();
-//                     answer.add(a.getName());
-//                 } else{
-//                     answer.add(prevName);
-//                     st.pop();
-//                     st.add(
-//                         new Assignment(a.getName(), -1, 
-//                                        lastStartTime+a.getPlayTime() - assignments[plans.length-1].getStartTime())
-//                     );
-//                     break;
-//                 }
-//             }
-//         } else{
-            
-//         }
+    
         answer.add(prevName);
         
         
