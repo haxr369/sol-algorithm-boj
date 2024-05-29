@@ -1,0 +1,5 @@
+-- 코드를 입력하세요
+SELECT * FROM PLACES p
+WHERE 2 <= (SELECT COUNT(ps.ID) FROM PLACES ps
+            WHERE ps.HOST_ID = p.HOST_ID)
+ORDER BY p.ID ASC;
