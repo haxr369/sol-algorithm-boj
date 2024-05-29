@@ -1,5 +1,9 @@
 -- 코드를 입력하세요
-SELECT * FROM PLACES p
-WHERE 2 <= (SELECT COUNT(ps.ID) FROM PLACES ps
-            WHERE ps.HOST_ID = p.HOST_ID)
+SELECT p.* FROM PLACES p
+JOIN (
+        SELECT ps.HOST_ID FROM PLACES ps
+        GROUP BY ps.HOST_ID
+        HAVING COUNT(ps.HOST_ID) >= 2
+    ) AS sub
+ON p.HOST_ID = sub.HOST_ID
 ORDER BY p.ID ASC;
