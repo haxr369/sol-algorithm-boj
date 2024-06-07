@@ -54,8 +54,11 @@ class Solution {
     }
     
     private int getAddSec(int h, int m, int s) {
+        // 360도 도는데 12시간 소요 => (1시간 당 30도), (1분 당 0.5도), (1초 당 0.5/60도)
         double hDegree = (h % 12) * 30 + m * 0.5 + s * (0.5 / 60);
+        // 360도 도는데 60분 소요 => (1분당 6도), (1초당  0.1도)
         double mDegree = m * 6 + s * 0.1;
+        // 360도 도는데 60초 소요 => 1초당 6도
         double sDegree = s * 6;
         
         int ret = 0;
