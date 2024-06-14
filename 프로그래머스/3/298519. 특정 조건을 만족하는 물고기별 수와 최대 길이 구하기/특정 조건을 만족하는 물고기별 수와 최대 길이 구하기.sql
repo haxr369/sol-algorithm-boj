@@ -8,7 +8,7 @@ FROM FISH_INFO f
 GROUP BY f.FISH_TYPE
 HAVING AVG(
             CASE
-               WHEN f.LENGTH <= 10
+               WHEN f.LENGTH IS NULL
                 THEN 10
                 ELSE f.LENGTH
             END
