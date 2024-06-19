@@ -57,32 +57,21 @@ class Solution {
         }
         // System.out.println("D[i] : "+D[1]);
         for(int i=2; i<=n; i++){
-            // i와 i+1을 비교,
-            if(i==n){ // 끝일 때
-                if(tops[i-1] == 1){
-                    // D[n] = D[n-1]*4 + D[n-2]*3 + ... + D[0]*3
-                    D[i] += D[i-1]*4;
-                    for(int j=i-2; j>=0; j--){
-                        D[i] += D[j]*3;
-                    }
-                } else{ // D[n] = D[n-1]*3 + D[n-2]*2 + ... + D[0]*2
-                    D[i] += D[i-1]*3;
-                    for(int j=i-2; j>=0; j--){
-                        D[i] += D[j]*2;
-                    }
-                } 
+            if(i!=n && tops[i-1] != 1){
+                D[i] += D[i-1]*2;
+                for(int j=i-2; j>=0; j--){
+                    D[i] += D[j];
+                }
+            } else if(i==n && tops[i-1] == 1){
+                D[i] += D[i-1]*4;
+                for(int j=i-2; j>=0; j--){
+                    D[i] += D[j]*3;
+                }
             } else{
-                if(tops[i-1] == 1){
-                    // D[n] = D[n-1]*3 + D[n=2]*2 + ... + D[0]*2
-                    D[i] += D[i-1]*3;
-                    for(int j=i-2; j>=0; j--){
-                        D[i] += D[j]*2;
-                    }
-                } else{ // D[n] = D[n-1]*2 + D[n=2] + ... + D[0]
-                    D[i] += D[i-1]*2;
-                    for(int j=i-2; j>=0; j--){
-                        D[i] += D[j];
-                    }
+                 // D[n] = D[n-1]*3 + D[n=2]*2 + ... + D[0]*2
+                D[i] += D[i-1]*3;
+                for(int j=i-2; j>=0; j--){
+                    D[i] += D[j]*2;
                 }
             }
             // System.out.println("D["+i+"] : "+D[i]);
